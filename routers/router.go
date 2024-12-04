@@ -11,9 +11,9 @@ func InitRouter() *gin.Engine {
 
 	apiv1 := router.Group("/api/v1")
 
-	apiv1Visa := apiv1.Group("/visa-tubudd")
+	apiv1VisaFlow := apiv1.Group("/visa-tubudd/flow")
 	{
-		apiv1Visa.POST("/finish-payment", visacontroller.FinishPayment)
+		apiv1VisaFlow.POST(":workflow_id/finish-payment", visacontroller.FinishPayment)
 	}
 	return router
 }
